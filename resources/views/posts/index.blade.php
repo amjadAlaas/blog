@@ -6,7 +6,7 @@ all posts
 <div class="text-center">
             <a href="{{route('posts.create')}}" type="button" class="btn btn-success">new post</a>
         </div>
-        <table class="table mt-4">
+        <table class="table mt-4 text-center">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -26,7 +26,11 @@ all posts
                         <td>
                             <a href = "{{route('posts.show', $post['id'])}}" class="btn btn-info">View</a>
                             <a href="{{route('posts.edit', $post['id'])}}" class="btn btn-primary">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <form class="d-inline" action="{{route('posts.destroy', $post['id'])}}" method="post">
+                            @method('DELETE')
+                            @csrf
+                                <input type="submit" class="btn btn-danger" value="Delete">
+                            </form>
                         </td>
                 </tr>
             @endforeach

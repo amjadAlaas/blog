@@ -58,7 +58,10 @@ class PostController extends Controller
         }
     }
     public function update($postId) {
-        return "tes";
+        return to_route('posts.show', $postId);
+    }
+    public function destroy() {
+        return 'delete test';
     }
 
 }
